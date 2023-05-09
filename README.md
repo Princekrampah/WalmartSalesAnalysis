@@ -80,6 +80,8 @@ The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition]
 
 ## Code
 
+For the rest of the code, check the [SQL_queries.sql](https://github.com/Princekrampah/WalmartSalesAnalysis/blob/master/SQL_queries.sql) file
+
 ```sql
 -- Create database
 CREATE DATABASE IF NOT EXISTS walmartSales;
@@ -104,6 +106,4 @@ CREATE TABLE IF NOT EXISTS sales(
     gross_income DECIMAL(12, 4),
     rating FLOAT(2, 1)
 );
-
--- How many unique cities does the data have?
 ```
