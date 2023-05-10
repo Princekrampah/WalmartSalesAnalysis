@@ -77,6 +77,48 @@ The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition]
 5. How many unique payment methods does the data have?
 6. What is the most selling product line?
 7. What is the average rating of each product line?
+8. Which time of the day do customers give most ratings?
+9. Which time of the day do customers give most ratings per branch?
+10. Which day fo the week has the best avg ratings?
+11. Which day of the week has the best average ratings per branch?
+12. Which city has the largest tax percent/ VAT (**Value Added Tax**)?
+13. What is the gender of most of the customers?
+14. What is the gender distribution per branch?
+15. Number of sales made in each time of the day per weekday
+16. What is the most common customer type?
+17. Which customer type buys the most?
+18. Which branch sold more products than average product sold?
+
+## Revenue And Profit Calculations
+
+$ COGS = unitsPrice \* quantity $
+
+$ VAT = 5\% \* COGS $
+
+$VAT$ is added to the $COGS$ and this is what is billed to the customer.
+
+$ total(gross_sales) = VAT + COGS $
+
+$ grossProfit(grossIncome) = total(gross_sales) - COGS $
+
+**Gross Margin** is gross profit expressed in percentage of the total(gross profit/revenue)
+
+$ \text{Gross Margin} = \frac{\text{gross income}}{\text{total revenue}} $
+
+<u>**Example with the first row in our DB:**</u>
+
+**Data given:**
+
+- $ \text{Unite Price} = 45.79 $
+- $ \text{Quantity} = 7 $
+
+$ COGS = 45.79 \* 7 = 320.53 $
+
+$ \text{VAT} = 5\% _ COGS\\= 5\% _ 320.53 = 16.0265 $
+
+$ total(\text{gross_sales}) = VAT + COGS\\= 16.0265 + 320.53 = \$336.5565$
+
+$ \text{Gross Margin Percentage} = \frac{\text{gross income}}{\text{total revenue}}\\=\frac{16.0265}{336.5565} = 0.047619\\\approx 4.7619\% $
 
 ## Code
 

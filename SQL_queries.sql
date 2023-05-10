@@ -130,3 +130,124 @@ SELECT
 FROM sales
 GROUP BY product_line
 ORDER BY avg_rating DESC;
+
+-- Which time of the day do customers give most ratings?
+SELECT
+	time_of_day,
+	AVG(rating) AS avg_rating
+FROM sales
+GROUP BY time_of_day
+ORDER BY avg_rating DESC;
+-- Looks like time of the day does not really affect the rating, its
+-- more or less the same rating each time of the day.alter
+
+
+-- Which time of the day do customers give most ratings per branch?
+SELECT
+	time_of_day,
+	AVG(rating) AS avg_rating
+FROM sales
+WHERE branch = "A"
+GROUP BY time_of_day
+ORDER BY avg_rating DESC;
+-- Branch A and C are doing well in ratings, branch B needs to do a 
+-- little more to get better ratings.
+
+
+-- Which day fo the week has the best avg ratings?
+SELECT
+	day_name,
+	AVG(rating) AS avg_rating
+FROM sales
+GROUP BY day_name 
+ORDER BY avg_rating DESC;
+-- Mon, Tue and Friday are the top best days for good ratings
+-- why is that the case, how many sales are made on these days?
+
+SELECT 
+	day_name,
+	COUNT(day_name) total_sales
+FROM sales
+GROUP BY day_name
+ORDER BY total_sales DESC;
+
+-- Monday seems to have the best avg rating, may be cause there are not
+-- much sales on Monday as it rates lowest for total sales.
+
+
+-- Which day of the week has the best average ratings per branch?
+SELECT 
+	day_name,
+	COUNT(day_name) total_sales
+FROM sales
+WHERE branch = "C"
+GROUP BY day_name
+ORDER BY total_sales DESC;	
+
+
+-- Which city has the largest tax percent?
+SELECT
+	city,
+    ROUND(AVG(tax_pct), 2) AS avg_tax_pct
+FROM sales
+GROUP BY city 
+ORDER BY avg_tax_pct DESC;
+
+
+-- What is the gender of most of the customers?
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+
+
+
+-- What is the gender distribution per branch?
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+WHERE branch = "C"
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+-- Gender per branch is more or less the same hence, I don't think has
+-- an effect of the sales per branch and other factors.
+
+
+-- Number of sales made in each time of the day per weekday 
+SELECT
+	time_of_day,
+	COUNT(*) AS total_sales
+FROM sales
+WHERE day_name = "Sunday"
+GROUP BY time_of_day 
+ORDER BY total_sales DESC;
+-- Evenings experience most sales, the stores are 
+-- filled during the evening hours
+
+
+-- What is the most common customer type?
+SELECT
+	customer_type,
+	count(*) as count
+FROM sales
+GROUP BY customer_type
+ORDER BY count DESC;
+
+
+-- Which customer type buys the most?
+SELECT
+	customer_type,
+    COUNT(*)
+FROM sales
+GROUP BY customer_type;
+
+-- Which branch sold more products than average product sold?
+SELECT 
+	branch, 
+    SUM(quantity) AS qnty
+FROM sales
+GROUP BY branch
+HAVING SUM(quantity) > (SELECT AVG(quantity) FROM sales);
