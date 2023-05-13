@@ -88,12 +88,22 @@ The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition]
 16. What is the most common customer type?
 17. Which customer type buys the most?
 18. Which branch sold more products than average product sold?
+19. What is the most common product line by gender
+20. Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales
+21. What is the most common payment method?
+22. What is the total revenue by month?
+23. What month had the largest COGS?
+24. What product line had the largest revenue?
+25. What is the city with the largest revenue?
+26. What product line had the largest VAT?
+27. Which of the customer types brings the most revenue?
+28. Which customer type pays the most in VAT?
 
 ## Revenue And Profit Calculations
 
-$ COGS = unitsPrice \* quantity $
+$ COGS = unitsPrice * quantity $
 
-$ VAT = 5\% \* COGS $
+$ VAT = 5\% * COGS $
 
 $VAT$ is added to the $COGS$ and this is what is billed to the customer.
 
@@ -112,11 +122,11 @@ $ \text{Gross Margin} = \frac{\text{gross income}}{\text{total revenue}} $
 - $ \text{Unite Price} = 45.79 $
 - $ \text{Quantity} = 7 $
 
-$ COGS = 45.79 \* 7 = 320.53 $
+$ COGS = 45.79 * 7 = 320.53 $
 
-$ \text{VAT} = 5\% _ COGS\\= 5\% _ 320.53 = 16.0265 $
+$ \text{VAT} = 5\% * COGS\\= 5\%  320.53 = 16.0265 $
 
-$ total(\text{gross_sales}) = VAT + COGS\\= 16.0265 + 320.53 = \$336.5565$
+$ total = VAT + COGS\\= 16.0265 + 320.53 = $336.5565$
 
 $ \text{Gross Margin Percentage} = \frac{\text{gross income}}{\text{total revenue}}\\=\frac{16.0265}{336.5565} = 0.047619\\\approx 4.7619\% $
 
